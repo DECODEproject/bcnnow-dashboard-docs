@@ -1,0 +1,3 @@
+type: string
+description: Unique string that identifies the community
+example: 7679655b-4c30-4c32-9ae9-a6f1af4a64d0

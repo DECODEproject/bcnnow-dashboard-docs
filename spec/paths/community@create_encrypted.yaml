@@ -1,0 +1,24 @@
+post:
+  tags:
+    - Create
+  summary: Create an encrypted dashboard
+  description: >
+    This endpoint allows the caller to create a new encrypted dashboard. An
+    encrypted dashboard is one that has an associated keypair, and should only
+    be accessible by users who can prove their membership of the related
+    community via the Coconut protocol.
+  operationId: createEncrypted
+  responses:
+    '200':
+      description: Dashboard created OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EncryptedDashboardResponse'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/EncryptedDashboardRequest'
+    description: New dashboard object
+    required: true

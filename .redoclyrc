@@ -1,0 +1,8 @@
+
+apiTitle: BCNNow Dashboard
+splitSpec: true
+codeSamples: true
+swaggerUI: true
+travis: true
+repo: DECODEproject/iot-dashboard-docs
+oasVersion: 3.0.0

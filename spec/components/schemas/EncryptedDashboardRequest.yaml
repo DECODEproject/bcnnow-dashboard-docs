@@ -1,0 +1,18 @@
+type: object
+description: >-
+  Request object sent to the dashboard API in order to create a new encrypted
+  dashboard
+properties:
+  community_name:
+    $ref: '#/components/schemas/CommunityName'
+  community_id:
+    $ref: '#/components/schemas/CommunityID'
+  authorizable_attribute_id:
+    $ref: '#/components/schemas/AuthorizableAttributeID'
+  credential_issuer_endpoint_address:
+    $ref: '#/components/schemas/CredentialIssuerEndpointAddress'
+required:
+  - community_name
+  - community_id
+  - authorizable_attribute_id
+  - credential_issuer_endpoint_address

@@ -1,0 +1,5 @@
+type: string
+description: >-
+  Unique string that identifies an authorizable attribute that has already been
+  registered with the credential issuer
+example: 7d6agshdks9

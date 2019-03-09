@@ -1,0 +1,33 @@
+openapi: 3.0.0
+info:
+  version: 0.0.1
+  title: BCNNow Dashboard API
+  contact:
+    email: contact@example.com
+    url: 'http://bcnnow.decodeproject.eu/'
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  x-logo:
+    url: 'https://decodeproject.eu/sites/default/files/favicon_13.png'
+  description: >
+    Documentation for the BCNNow dashboard API developed as part of the
+    [DECODE](https://decodeproject.eu/) project
+
+
+    # Introduction
+
+
+    Some text describing the purpose of the API
+
+
+    # Authentication
+
+
+    The API currently does not require any authentication in order to submit
+    requests.
+tags:
+  - name: Create
+    description: Endpoints that allow for the creation of new dashboards
+servers:
+  - url: 'http://bcnnow.decodeproject.eu'
