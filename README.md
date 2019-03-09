@@ -1,5 +1,5 @@
 # BCNNow Dashboard OpenAPI Specification
-[![Build Status](https://travis-ci.com/DECODEproject/iot-dashboard-docs.svg?branch=master)](https://travis-ci.com/DECODEproject/iot-dashboard-docs)
+[![Build Status](https://travis-ci.com/DECODEproject/bcnnow-dashboard-docs.svg?branch=master)](https://travis-ci.com/DECODEproject/bcnnow-dashboard-docs)
 ## Steps to finish
 
 1. Enable [Travis](https://docs.travis-ci.com/user/getting-started/#To-get-started-with-Travis-CI%3A) for your repository (**note**: you already have `.travis.yml` file)
@@ -13,9 +13,9 @@
 
 ## Links
 
-- [Reference Documentation (ReDoc)](https://decodeproject.github.io/iot-dashboard-docs/)
-- [SwaggerUI](https://decodeproject.github.io/iot-dashboard-docs/swagger-ui/)
-- OpenAPI Raw Files: [JSON](https://decodeproject.github.io/iot-dashboard-docs/openapi.json) [YAML](https://decodeproject.github.io/iot-dashboard-docs/openapi.yaml)
+- [Reference Documentation (ReDoc)](https://decodeproject.github.io/bcnnow-dashboard-docs/)
+- [SwaggerUI](https://decodeproject.github.io/bcnnow-dashboard-docs/swagger-ui/)
+- OpenAPI Raw Files: [JSON](https://decodeproject.github.io/bcnnow-dashboard-docs/openapi.json) [YAML](https://decodeproject.github.io/bcnnow-dashboard-docs/openapi.yaml)
 
 **Warning:** All above links are updated only after Travis CI finishes deployment
 
