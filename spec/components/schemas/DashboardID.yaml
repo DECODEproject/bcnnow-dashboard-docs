@@ -1,0 +1,3 @@
+type: string
+description: Unique identifier of the dashboard
+example: 5aee90fd-8aeb-40b2-bb41-e31e6ed40cfd
