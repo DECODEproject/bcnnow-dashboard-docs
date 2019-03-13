@@ -4,7 +4,7 @@ info:
   title: BCNNow Dashboard API
   contact:
     email: contact@example.com
-    url: 'http://84.88.76.45:888'
+    url: 'https://github.com/DECODEproject/bcnnow'
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
@@ -12,12 +12,10 @@ info:
     url: 'https://decodeproject.eu/sites/default/files/favicon_13.png'
   description: |
     Documentation for the BCNNow dashboard API developed as part of the [DECODE](https://decodeproject.eu/) project
-
     # Introduction
-
-    This API specification is handle two scenarios:
-    1. To create a new community in the dashboard (either with encrypted data source or un encrypted data source)
-    2. To allow login using QR code and Mobile app
+    This API specification is to handle two scenarios:
+    1. To create a new private community in the dashboard (either with encrypted data source or non-encrypted data source)
+    2. To allow login using QR code and Mobile app.
 
     # Authentication
 
@@ -35,9 +33,9 @@ paths:
     post:
       tags:
         - Create Encrypted
-      summary: Create a private dashboard community which can have encrypted data source.
+      summary: Create a private dashboard community which can have encrypted data sources.
       description: |
-        This endpoint allows the caller to create a new private dashboard community. It is only accessible by users who can prove their membership of the related community via the Coconut protocol. The data sources for the encrypted dashboard will be encrypted using the public key published.
+        This endpoint allows the caller to create a new private dashboard community. The community dashboard will only be accessible by users who can prove their membership of the related community via the Coconut protocol. The data sources  will be encrypted using the public key published.
       operationId: createEncrypted
       responses:
         '200':
@@ -59,7 +57,7 @@ paths:
         - Create
       summary: Create an private dashboard community with non encrypted data sources only
       description: |
-        This endpoint allows the caller to create a new private  dashboard community. It is accessible by users who can prove their membership of the related community via the Coconut protocol. The data sources in this community are not encrypted.
+        This endpoint allows the caller to create a new private  dashboard community. The community dashboard will only be accessible by users who can prove their membership of the related community via the Coconut protocol. The data sources in this dashboard are not encrypted.
       operationId: create
       responses:
         '200':
