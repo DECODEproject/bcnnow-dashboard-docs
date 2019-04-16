@@ -1,12 +1,12 @@
 post:
   tags:
-    - Create
-  summary: Create an encrypted dashboard
+    - Create Encrypted
+  summary: Create a private dashboard community which can have encrypted data sources.
   description: >
-    This endpoint allows the caller to create a new encrypted dashboard. An
-    encrypted dashboard is one that has an associated keypair, and should only
-    be accessible by users who can prove their membership of the related
-    community via the Coconut protocol.
+    This endpoint allows the caller to create a new private dashboard community.
+    The community dashboard will only be accessible by users who can prove their
+    membership of the related community via the Coconut protocol. The data
+    sources  will be encrypted using the public key published.
   operationId: createEncrypted
   responses:
     '200':

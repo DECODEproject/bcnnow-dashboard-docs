@@ -1,0 +1,5 @@
+type: object
+description: Response returned on successfully creating an un encrypted dashboard
+properties:
+  id:
+    $ref: '#/components/schemas/DashboardID'

@@ -1,0 +1,24 @@
+post:
+  tags:
+    - Create
+  summary: Create an private dashboard community with non encrypted data sources only
+  description: >
+    This endpoint allows the caller to create a new private  dashboard
+    community. The community dashboard will only be accessible by users who can
+    prove their membership of the related community via the Coconut protocol.
+    The data sources in this dashboard are not encrypted.
+  operationId: create
+  responses:
+    '200':
+      description: Dashboard created OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/unEncryptedDashboardResponse'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/EncryptedDashboardRequest'
+    description: New dashboard object
+    required: true

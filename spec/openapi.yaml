@@ -4,7 +4,7 @@ info:
   title: BCNNow Dashboard API
   contact:
     email: contact@example.com
-    url: 'http://bcnnow.decodeproject.eu/'
+    url: 'https://github.com/DECODEproject/bcnnow'
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
@@ -14,11 +14,14 @@ info:
     Documentation for the BCNNow dashboard API developed as part of the
     [DECODE](https://decodeproject.eu/) project
 
-
     # Introduction
 
+    This API specification is to handle two scenarios:
 
-    Some text describing the purpose of the API
+    1. To create a new private community in the dashboard (either with encrypted
+    data source or non-encrypted data source)
+
+    2. To allow login using QR code and Mobile app.
 
 
     # Authentication
@@ -27,7 +30,14 @@ info:
     The API currently does not require any authentication in order to submit
     requests.
 tags:
+  - name: Create Encrypted
+    description: >-
+      Endpoints that allow for the creation of new dashboards community with
+      encrypted data sources
   - name: Create
-    description: Endpoints that allow for the creation of new dashboards
+    description: >-
+      Endpoints that allow for the creation of new dashboards community with non
+      encrypted data sources
 servers:
+  - url: 'http://84.88.76.45:887'
   - url: 'http://bcnnow.decodeproject.eu'
