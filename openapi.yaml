@@ -25,9 +25,11 @@ tags:
     description: Endpoints that allow for the creation of new dashboards community with encrypted data sources
   - name: Create
     description: Endpoints that allow for the creation of new dashboards community with non encrypted data sources
+  - name: IoT Login
+    description: Endpoints that allow for login to dashbaord.
 servers:
   - url: 'http://84.88.76.45:887'
-  - url: 'http://bcnnow.decodeproject.eu'
+  - url: 'http://93ff8837.ngrok.io'
 paths:
   /community/create_encrypted:
     post:
@@ -73,12 +75,38 @@ paths:
               $ref: '#/components/schemas/EncryptedDashboardRequest'
         description: New dashboard object
         required: true
+  /oauth/iot_login_callback:
+    post:
+      tags:
+        - IoT Login
+      summary: Valids and allow login for the Private community in Dashboard.
+      description: |
+        This endpoint allows the caller to validate the sessionid if the blind credential proof is valid for the given community mapped to the provided authorizable_attribute_id
+      operationId: iotLogin
+      responses:
+        '200':
+          description: Login Validated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/loginValidationResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/loginrequest'
+        description: New dashboard object
+        required: true
 components:
   schemas:
     AuthorizableAttributeID:
       type: string
       description: Unique string that identifies an authorizable attribute that has already been registered with the credential issuer
       example: 7d6agshdks9
+    c:
+      type: string
+      description: c
+      example: aac1833328ddad42407395e318c6efcf0f9aa504a4a8063ebad1457c79115157
     CommunityID:
       type: string
       description: Unique string that identifies the community
@@ -87,15 +115,31 @@ components:
       type: string
       description: The name of the community - will be shown on the dashboard
       example: Placa del Sol Neighbourhood Group
+    credential:
+      type: object
+      description: credentils
+      properties:
+        authorizable_attribute_id:
+          $ref: '#/components/schemas/AuthorizableAttributeID'
+        credential_issuer_endpoint_address:
+          $ref: '#/components/schemas/CredentialIssuerEndpointAddress'
+        value:
+          $ref: '#/components/schemas/value'
     CredentialIssuerEndpointAddress:
       type: string
       format: url
       description: URL that points to the credential issuer where the referenced authorizable attribute has been already registered
       example: 'https://credential.decodeproject.eu'
+    curve:
+      type: string
+      example: bls383
     DashboardID:
       type: integer
       description: Unique identifier of the dashboard
       example: 20
+    encoding:
+      type: string
+      example: hex
     EncryptedDashboardRequest:
       type: object
       description: Request object sent to the dashboard API in order to create a new encrypted dashboard
@@ -121,16 +165,101 @@ components:
           $ref: '#/components/schemas/DashboardID'
         public_key:
           $ref: '#/components/schemas/PublicKey'
+    h_prime:
+      type: string
+      description: h_prime
+      example: 04505555dda07f695578f2663116f83a43d64d57d6b2c31faf795b0e191cc7e12c1e91c65f2870289c7471526c69d69766034148956fa0b048e51d0e93f1fcc035dbef4528fb84ff84e8fcd7d9b6191f47e9ca55575fa216f454f81785b00c910b
+    kappa:
+      type: string
+      example: 4a0f0a7638cd87ac68c939327be968f143a671aaf0ca5be83104b2cc57413638fdb14d2484359e54e9a68f1968e3fb892268d695229de08ed422fc89c2eca30bfb23e9caae86f557e193ead9d79e33cdd48118dae708ecaf07ef380bf9f26ef733141fa096f57a5b8fdc3b126180d08a6011e0f4700dd9e7bda7c5a9c49b9deb7eb9910264e31d880e33f9553c1bd9a032a675b907b7b4f147a327110795e6b587ccdd1bc9a0ea8f9db8a64795c072249c2d9e2409ec8b36646a708091bcf995
+    loginrequest:
+      type: object
+      description: request json for the login call back url
+      properties:
+        sessionId:
+          $ref: '#/components/schemas/sessionId'
+        credential:
+          $ref: '#/components/schemas/credential'
+    loginValidationResponse:
+      type: string
+      description: response on login validation call back
+      example: OK
+    nu:
+      type: string
+      example: 3c7a4f891166326f36ce6c895388c3b93e6108f74f61af7d9a0cf64298f68943
+    pi_v:
+      type: object
+      properties:
+        c:
+          $ref: '#/components/schemas/c'
+        rr:
+          $ref: '#/components/schemas/rr'
+        rm:
+          $ref: '#/components/schemas/rm'
+        nu:
+          $ref: '#/components/schemas/nu'
+    proof:
+      type: object
+      description: proof
+      properties:
+        sigma_prime:
+          $ref: '#/components/schemas/sigma_prime'
+        pi_v:
+          $ref: '#/components/schemas/pi_v'
+        curve:
+          $ref: '#/components/schemas/curve'
+        zenroom:
+          $ref: '#/components/schemas/zenroom'
+        schema:
+          $ref: '#/components/schemas/schema'
+        kappa:
+          $ref: '#/components/schemas/kappa'
+        encoding:
+          $ref: '#/components/schemas/encoding'
     PublicKey:
       type: string
       description: The public part of an encryption keypair generated by Zenroom
       example: BHR2u2wQ4lekHcRQ3iVqo1zOXAM9JSLWqi0EtpNQOUVUVlcYW57N/wNM0Nut+4qo5ayk2VZY0aIhPmA9yJSta24=
+    rm:
+      type: string
+      example: 3c7a4f891166326f36ce6c895388c3b93e6108f74f61af7d9a0cf64298f68943
+    rr:
+      type: string
+      example: f89f4c3198b3dc008bd4e554162700a98d4990d9fb2792b63a0e8f30b21f5476
+    s_prime:
+      type: string
+      description: s_prime
+      example: 042bcf5212f8bc0bc3b52ab844826afc3473395e54c7948173b19ad5439b3a27561c35a64029b97c36a39e3ac49cfe766b14ed74b79d6821a7d253e47dfb887b3337239a7c459f258c7d1c2b886ef835fc9a91def11a7d09d8c00268aa72f3f574
+    schema:
+      type: string
+      example: theta
+    sessionId:
+      type: string
+      description: session id sent by BCN Now in QR code or the login link.
+      example: e4c3264443f011e9b3dafa163e2e0d5a
+    sigma_prime:
+      type: object
+      description: sigma_prime
+      properties:
+        s_prime:
+          $ref: '#/components/schemas/s_prime'
+        h_prime:
+          $ref: '#/components/schemas/h_prime'
     unEncryptedDashboardResponse:
       type: object
       description: Response returned on successfully creating an un encrypted dashboard
       properties:
         id:
           $ref: '#/components/schemas/DashboardID'
+    value:
+      type: object
+      description: blind credentials proof by zenroom
+      properties:
+        proof:
+          $ref: '#/components/schemas/proof'
+    zenroom:
+      type: string
+      example: 0.8.1
   headers:
     ExpiresAfter:
       description: date in UTC when token expires
