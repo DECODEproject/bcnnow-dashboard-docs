@@ -1,0 +1,3 @@
+type: string
+description: session id sent by BCN Now in QR code or the login link.
+example: e4c3264443f011e9b3dafa163e2e0d5a

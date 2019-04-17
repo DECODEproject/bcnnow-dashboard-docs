@@ -1,0 +1,7 @@
+type: object
+description: sigma_prime
+properties:
+  s_prime:
+    $ref: '#/components/schemas/s_prime'
+  h_prime:
+    $ref: '#/components/schemas/h_prime'

@@ -1,0 +1,23 @@
+post:
+  tags:
+    - IoT Login
+  summary: Valids and allow login for the Private community in Dashboard.
+  description: >
+    This endpoint allows the caller to validate the sessionid if the blind
+    credential proof is valid for the given community mapped to the provided
+    authorizable_attribute_id
+  operationId: iotLogin
+  responses:
+    '200':
+      description: Login Validated
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/loginValidationResponse'
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/loginrequest'
+    description: New dashboard object
+    required: true

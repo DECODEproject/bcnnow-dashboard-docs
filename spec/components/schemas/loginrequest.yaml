@@ -1,0 +1,7 @@
+type: object
+description: request json for the login call back url
+properties:
+  sessionId:
+    $ref: '#/components/schemas/sessionId'
+  credential:
+    $ref: '#/components/schemas/credential'

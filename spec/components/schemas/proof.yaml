@@ -1,0 +1,17 @@
+type: object
+description: proof
+properties:
+  sigma_prime:
+    $ref: '#/components/schemas/sigma_prime'
+  pi_v:
+    $ref: '#/components/schemas/pi_v'
+  curve:
+    $ref: '#/components/schemas/curve'
+  zenroom:
+    $ref: '#/components/schemas/zenroom'
+  schema:
+    $ref: '#/components/schemas/schema'
+  kappa:
+    $ref: '#/components/schemas/kappa'
+  encoding:
+    $ref: '#/components/schemas/encoding'

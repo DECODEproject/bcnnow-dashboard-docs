@@ -1,0 +1,3 @@
+type: string
+description: response on login validation call back
+example: OK

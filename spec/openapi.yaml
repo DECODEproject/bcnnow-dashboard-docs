@@ -38,6 +38,8 @@ tags:
     description: >-
       Endpoints that allow for the creation of new dashboards community with non
       encrypted data sources
+  - name: IoT Login
+    description: Endpoints that allow for login to dashbaord.
 servers:
   - url: 'http://84.88.76.45:887'
-  - url: 'http://bcnnow.decodeproject.eu'
+  - url: 'http://93ff8837.ngrok.io'

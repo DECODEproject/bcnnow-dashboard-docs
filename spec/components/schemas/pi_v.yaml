@@ -1,0 +1,10 @@
+type: object
+properties:
+  c:
+    $ref: '#/components/schemas/c'
+  rr:
+    $ref: '#/components/schemas/rr'
+  rm:
+    $ref: '#/components/schemas/rm'
+  nu:
+    $ref: '#/components/schemas/nu'

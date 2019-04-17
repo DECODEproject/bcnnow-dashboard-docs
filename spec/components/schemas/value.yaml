@@ -1,0 +1,5 @@
+type: object
+description: blind credentials proof by zenroom
+properties:
+  proof:
+    $ref: '#/components/schemas/proof'
